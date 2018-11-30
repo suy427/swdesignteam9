@@ -1,27 +1,32 @@
 package application;
 
+import java.util.ArrayList;
 import java.util.Date;
 
 public class InternshipProgram {
 
+    private int officeID;
+    private String officeName;
     private int programID;
     private String programName;
     private String companyName;
     private Date closingDate;
-    //private String closingDate;
     private String position;
     private String workingContry;
-    private Date workingTerm;
-    //private String workingTerm; //얘도 마찬가지..
+    private Term workingTerm;
     private int wage;
     private int minYear;
     private String majorCondition; // 얘 이름 너무 부자연스러움..ㅠㅠ
     private float minGpa;
-    private String englishName;
+    private String englishLevel;
     private ExtraRequirement extraRequirement;
 
     public InternshipProgram() {
 
+    }
+
+    public void apply(int stdID) {
+        ApplyInformation.getInstance(this.programID, stdID);
     }
 
     public void searchInternship() {
@@ -31,10 +36,6 @@ public class InternshipProgram {
     public boolean isClosed() {
 
         return false; // default value
-    }
-
-    public void apply() {
-
     }
 
     public int getProgramID() {
@@ -85,11 +86,11 @@ public class InternshipProgram {
         this.workingContry = workingContry;
     }
 
-    public Date getWorkingTerm() {
+    public Term getWorkingTerm() {
         return workingTerm;
     }
 
-    public void setWorkingTerm(Date workingTerm) {
+    public void setWorkingTerm(Term workingTerm) {
         this.workingTerm = workingTerm;
     }
 
@@ -125,12 +126,12 @@ public class InternshipProgram {
         this.minGpa = minGpa;
     }
 
-    public String getEnglishName() {
-        return englishName;
+    public String getEnglishLevel() {
+        return englishLevel;
     }
 
-    public void setEnglishName(String englishName) {
-        this.englishName = englishName;
+    public void setEnglishLevel(String englishLevel) {
+        this.englishLevel = englishLevel;
     }
 
     public ExtraRequirement getExtraRequirement() {

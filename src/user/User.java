@@ -9,7 +9,6 @@ public class User {
     }
 
     String getId() {
-
         return id;
     }
 

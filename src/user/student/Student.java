@@ -17,7 +17,7 @@ public class Student extends User {
 
     //privqte ArrayList<InternshipProgram> wishList; 이거인게 아닐까 하하
     private ArrayList<ApplyInformation> wishList;
-    private ArrayList<ApplyInformation> myApplyInfo;
+    private ArrayList<ApplyData> myApplyInfo;
     private WishCondition wishCondition;
     private ExtraQualification extraQualification;
 
@@ -81,13 +81,13 @@ public class Student extends User {
         this.wishCondition = wishCondition;
     }
 
-    public ArrayList<ApplyInformation> getMyApplyInfo() {
-        return myApplyInfo;
-    }
-
-    public void setMyApplyInfo(ArrayList<ApplyInformation> myApplyInfo) {
-        this.myApplyInfo = myApplyInfo;
-    }
+//    public ArrayList<ApplyInformation> getMyApplyInfo() {
+//        return myApplyInfo;
+//    }
+//
+//    public void setMyApplyInfo(ArrayList<ApplyInformation> myApplyInfo) {
+//        this.myApplyInfo = myApplyInfo;
+//    }
 
     public ExtraQualification getExtraQualification() {
         return extraQualification;
