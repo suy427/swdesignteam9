@@ -2,8 +2,8 @@ package application;
 
 public class ApplyInformation {
 
-    private int programID;
-    private int studentID;
+    private int programID; //지우라고 피드백받음
+    private int studentID; //지우라고 피드백받음
     private int applierNumber; // 이거 뭐하는거였더라..?
     private boolean passState;
     private float compatitionRate; // 이게 5.2면 --> 5.2 : 1인거임
@@ -51,4 +51,5 @@ public class ApplyInformation {
     public void setCompatitionRate(float compatitionRate) {
         this.compatitionRate = compatitionRate;
     }
+
 }

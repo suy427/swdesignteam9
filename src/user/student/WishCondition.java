@@ -1,5 +1,6 @@
 package user.student;
 
+import java.util.Date;
 import java.util.List;
 
 public class WishCondition {
@@ -8,10 +9,12 @@ public class WishCondition {
     private List<String> companyName;
     private List<String> workingContry;
     private List<String> position;
-    private float minimumGpa;
-    private int minimumYear; // 이게 왜 필요하지..?
-    private int wage; // 미니멈 붙여야 하려나?
-    private String workingTerm;// 이건 자료형을 어케해야하나...
+    private float minGpa;
+    private int minYear;
+    private int minWage;
+
+    private Date workingTerm;// 일단은 Date형으로 했당
+    //private String workingTerm;// 이건 자료형을 어케해야하나...
 
     public WishCondition() {
 
@@ -49,35 +52,35 @@ public class WishCondition {
         this.position = position;
     }
 
-    public float getMinimumGpa() {
-        return minimumGpa;
+    public float getMinGpa() {
+        return minGpa;
     }
 
-    public void setMinimumGpa(float minimumGpa) {
-        this.minimumGpa = minimumGpa;
+    public void setMinGpa(float minGpa) {
+        this.minGpa = minGpa;
     }
 
-    public int getMinimumYear() {
-        return minimumYear;
+    public int getMinYear() {
+        return minYear;
     }
 
-    public void setMinimumYear(int minimumYear) {
-        this.minimumYear = minimumYear;
+    public void setMinYear(int minYear) {
+        this.minYear = minYear;
     }
 
-    public int getWage() {
-        return wage;
+    public int getMinWage() {
+        return minWage;
     }
 
-    public void setWage(int wage) {
-        this.wage = wage;
+    public void setMinWage(int minWage) {
+        this.minWage = minWage;
     }
 
-    public String getWorkingTerm() {
+    public Date getWorkingTerm() {
         return workingTerm;
     }
 
-    public void setWorkingTerm(String workingTerm) {
+    public void setWorkingTerm(Date workingTerm) {
         this.workingTerm = workingTerm;
     }
 }

@@ -14,6 +14,8 @@ public class Student extends User {
     private float gpa;
     private String gender; // will be replaced enum later
     private String englishLevel; // will be replaced enum later
+
+    //privqte ArrayList<InternshipProgram> wishList; 이거인게 아닐까 하하
     private ArrayList<ApplyInformation> wishList;
     private ArrayList<ApplyInformation> myApplyInfo;
     private WishCondition wishCondition;

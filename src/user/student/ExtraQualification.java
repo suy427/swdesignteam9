@@ -6,9 +6,9 @@ public class ExtraQualification {
 
     private List<String> carrier;
     private boolean militeryService;
-    private List<String> extraActivities;
+    private List<String> extraActivity;
     private List<String> award;
-    private List<String> certification;
+    private List<String> certificate;
 
     public ExtraQualification() {
 
@@ -30,12 +30,12 @@ public class ExtraQualification {
         this.militeryService = militeryService;
     }
 
-    public List<String> getExtraActivities() {
-        return extraActivities;
+    public List<String> getExtraActivity() {
+        return extraActivity;
     }
 
-    public void setExtraActivities(List<String> extraActivities) {
-        this.extraActivities = extraActivities;
+    public void setExtraActivity(List<String> extraActivity) {
+        this.extraActivity = extraActivity;
     }
 
     public List<String> getAward() {
@@ -46,11 +46,11 @@ public class ExtraQualification {
         this.award = award;
     }
 
-    public List<String> getCertification() {
-        return certification;
+    public List<String> getCertificate() {
+        return certificate;
     }
 
-    public void setCertification(List<String> certification) {
-        this.certification = certification;
+    public void setCertificate(List<String> certificate) {
+        this.certificate = certificate;
     }
 }

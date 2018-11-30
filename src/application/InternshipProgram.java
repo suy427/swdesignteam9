@@ -1,18 +1,22 @@
 package application;
 
+import java.util.Date;
+
 public class InternshipProgram {
 
     private int programID;
     private String programName;
     private String companyName;
-    private String closingDate;// 이런것도 자료형을 따로 만들기 위한 class를 둬도 되는지 물어보고싶음
+    private Date closingDate;
+    //private String closingDate;
     private String position;
     private String workingContry;
-    private String workingTerm; //얘도 마찬가지..
+    private Date workingTerm;
+    //private String workingTerm; //얘도 마찬가지..
     private int wage;
-    private int minimumYear;
+    private int minYear;
     private String majorCondition; // 얘 이름 너무 부자연스러움..ㅠㅠ
-    private float minimumGpa;
+    private float minGpa;
     private String englishName;
     private ExtraRequirement extraRequirement;
 
@@ -57,11 +61,11 @@ public class InternshipProgram {
         this.companyName = companyName;
     }
 
-    public String getClosingDate() {
+    public Date getClosingDate() {
         return closingDate;
     }
 
-    public void setClosingDate(String closingDate) {
+    public void setClosingDate(Date closingDate) {
         this.closingDate = closingDate;
     }
 
@@ -81,11 +85,11 @@ public class InternshipProgram {
         this.workingContry = workingContry;
     }
 
-    public String getWorkingTerm() {
+    public Date getWorkingTerm() {
         return workingTerm;
     }
 
-    public void setWorkingTerm(String workingTerm) {
+    public void setWorkingTerm(Date workingTerm) {
         this.workingTerm = workingTerm;
     }
 
@@ -97,12 +101,12 @@ public class InternshipProgram {
         this.wage = wage;
     }
 
-    public int getMinimumYear() {
-        return minimumYear;
+    public int getMinYear() {
+        return minYear;
     }
 
-    public void setMinimumYear(int minimumYear) {
-        this.minimumYear = minimumYear;
+    public void setMinYear(int minYear) {
+        this.minYear = minYear;
     }
 
     public String getMajorCondition() {
@@ -113,12 +117,12 @@ public class InternshipProgram {
         this.majorCondition = majorCondition;
     }
 
-    public float getMinimumGpa() {
-        return minimumGpa;
+    public float getMinGpa() {
+        return minGpa;
     }
 
-    public void setMinimumGpa(float minimumGpa) {
-        this.minimumGpa = minimumGpa;
+    public void setMinGpa(float minGpa) {
+        this.minGpa = minGpa;
     }
 
     public String getEnglishName() {
