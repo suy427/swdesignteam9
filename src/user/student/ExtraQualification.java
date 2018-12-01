@@ -1,14 +1,15 @@
 package user.student;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class ExtraQualification {
 
-    private List<String> carrier;
+    private ArrayList<String> carrier = new ArrayList<>();
     private boolean militeryService;
-    private List<String> extraActivity;
-    private List<String> award;
-    private List<String> certificate;
+    private ArrayList<String> extraActivity = new ArrayList<>();
+    private ArrayList<String> award = new ArrayList<>();
+    private ArrayList<String> certificate = new ArrayList<>();
 
     public ExtraQualification() {
 
@@ -18,7 +19,7 @@ public class ExtraQualification {
         return carrier;
     }
 
-    public void setCarrier(List<String> carrier) {
+    public void setCarrier(ArrayList<String> carrier) {
         this.carrier = carrier;
     }
 
@@ -34,7 +35,7 @@ public class ExtraQualification {
         return extraActivity;
     }
 
-    public void setExtraActivity(List<String> extraActivity) {
+    public void setExtraActivity(ArrayList<String> extraActivity) {
         this.extraActivity = extraActivity;
     }
 
@@ -42,7 +43,7 @@ public class ExtraQualification {
         return award;
     }
 
-    public void setAward(List<String> award) {
+    public void setAward(ArrayList<String> award) {
         this.award = award;
     }
 
@@ -50,7 +51,7 @@ public class ExtraQualification {
         return certificate;
     }
 
-    public void setCertificate(List<String> certificate) {
+    public void setCertificate(ArrayList<String> certificate) {
         this.certificate = certificate;
     }
 }

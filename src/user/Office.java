@@ -8,7 +8,7 @@ public class Office extends User {
 
     private int officeID;
     private String officeName;
-    private ArrayList<InternshipProgram> internshipPrograms; //단복수??
+    private ArrayList<InternshipProgram> internshipPrograms = new ArrayList<>(); //단복수??
 
     public Office() {
 

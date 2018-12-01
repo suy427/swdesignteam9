@@ -4,9 +4,9 @@ import java.util.ArrayList;
 
 public class ExtraRequirement {
 
-   private ArrayList<String> carrier;
+   private ArrayList<String> carrier = new ArrayList<>();
    private boolean militaryService;
-   private ArrayList<String> certificate;
+   private ArrayList<String> certificate = new ArrayList<>();
 
    ExtraRequirement() {
 

@@ -1,14 +1,15 @@
 package user.student;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
 public class WishCondition {
 
-    private List<String> officeName;
-    private List<String> companyName;
-    private List<String> workingContry;
-    private List<String> position;
+    private ArrayList<String> officeName;
+    private ArrayList<String> companyName;
+    private ArrayList<String> workingContry;
+    private ArrayList<String> position;
     private float minGpa;
     private int minYear;
     private int minWage;
@@ -24,7 +25,7 @@ public class WishCondition {
         return officeName;
     }
 
-    public void setOfficeName(List<String> officeName) {
+    public void setOfficeName(ArrayList<String> officeName) {
         this.officeName = officeName;
     }
 
@@ -32,7 +33,7 @@ public class WishCondition {
         return companyName;
     }
 
-    public void setCompanyName(List<String> companyName) {
+    public void setCompanyName(ArrayList<String> companyName) {
         this.companyName = companyName;
     }
 
@@ -40,7 +41,7 @@ public class WishCondition {
         return workingContry;
     }
 
-    public void setWorkingContry(List<String> workingContry) {
+    public void setWorkingContry(ArrayList<String> workingContry) {
         this.workingContry = workingContry;
     }
 
@@ -48,7 +49,7 @@ public class WishCondition {
         return position;
     }
 
-    public void setPosition(List<String> position) {
+    public void setPosition(ArrayList<String> position) {
         this.position = position;
     }
 

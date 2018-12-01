@@ -3,12 +3,13 @@ package application;
 import user.student.Student;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Map;
 
 public class Apply {
 
-    private static Map<Integer, Apply> __InfoInstances;
-    private Map<Integer, PersonalApplyData> personalApplyData;
+    private static HashMap<Integer, Apply> __InfoInstances = new HashMap<>();
+    private HashMap<Integer, PersonalApplyData> personalApplyData = new HashMap<>();
     private int programID; //지우라고 피드백받음
     private int applierNumber; // 몇명째로 지원하는거냐...
 
@@ -35,13 +36,20 @@ public class Apply {
             programData = new Apply(pID, stdID);
             return programData;
         }
-
-        Student
         //saveInfo(ApplyInformation data); //파일 입력
     }
 
     public void cancelApply(int stdID) {
         personalApplyData.remove(stdID);
+    }
+
+    public HashMap<Integer, PersonalApplyData> showPersonalApplyData(ArrayList<Integer> applyInfo) {
+        HashMap<Integer, PersonalApplyData> returnMap = new HashMap<>();
+
+        for(Integer programID : applyInfo)
+            returnMap.put(programID, personalApplyData.get(programID));
+
+        return returnMap;
     }
 
     //private void saveInfo(ApplyInformation data) {

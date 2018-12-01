@@ -4,7 +4,7 @@ import user.User;
 
 import java.util.ArrayList;
 
-public class Student extends User {
+    public class Student extends User {
 
     private String name;
     private int studentID;
@@ -13,8 +13,8 @@ public class Student extends User {
     private float gpa;
     private String gender; // will be replaced enum later
     private String englishLevel; // will be replaced enum later
-    private ArrayList<Integer> wishList; // programID를 저장
-    private ArrayList<Integer> myApplyInfo; // programID를 저장
+    private ArrayList<Integer> wishList = new ArrayList<>(); // programID를 저장
+    private ArrayList<Integer> myApplyInfo = new ArrayList<>(); // programID를 저장
     private WishCondition wishCondition;
     private ExtraQualification extraQualification;
 
