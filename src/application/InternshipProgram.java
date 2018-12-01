@@ -13,7 +13,7 @@ public class InternshipProgram {
     private Date closingDate;
     private String position;
     private String workingContry;
-    private Term workingTerm;
+    private Period workingPeriod;
     private int wage;
     private int minYear;
     private String majorCondition; // 얘 이름 너무 부자연스러움..ㅠㅠ
@@ -26,7 +26,7 @@ public class InternshipProgram {
     }
 
     public void apply(int stdID) {
-        ApplyInformation.getInstance(this.programID, stdID);
+        Apply.getInstance(this.programID, stdID);
     }
 
     public void searchInternship() {
@@ -86,12 +86,28 @@ public class InternshipProgram {
         this.workingContry = workingContry;
     }
 
-    public Term getWorkingTerm() {
-        return workingTerm;
+    public int getOfficeID() {
+        return officeID;
     }
 
-    public void setWorkingTerm(Term workingTerm) {
-        this.workingTerm = workingTerm;
+    public void setOfficeID(int officeID) {
+        this.officeID = officeID;
+    }
+
+    public String getOfficeName() {
+        return officeName;
+    }
+
+    public void setOfficeName(String officeName) {
+        this.officeName = officeName;
+    }
+
+    public Period getWorkingPeriod() {
+        return workingPeriod;
+    }
+
+    public void setWorkingPeriod(Period workingPeriod) {
+        this.workingPeriod = workingPeriod;
     }
 
     public int getWage() {

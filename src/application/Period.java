@@ -2,7 +2,7 @@ package application;
 
 import java.util.Date;
 
-public class Term {
+public class Period {
     public Date startDate;
     public Date endDate;
 }
