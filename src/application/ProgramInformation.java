@@ -2,7 +2,7 @@ package application;
 
 import java.util.Date;
 
-public class InternshipData {
+public class ProgramInformation {
 
     private int officeID;
     private String officeName;
@@ -11,14 +11,12 @@ public class InternshipData {
     private String companyName;
     private Date closingDate;
     private String position;
-    private String workingContry;
+    private String workingCountry;
     private Period workingPeriod;
     private int wage;
-    private int minYear;
-    private String majorCondition; // 얘 이름 너무 부자연스러움..ㅠㅠ
-    private float minGpa;
-    private String englishLevel;
-    private ExtraRequirement extraRequirement;
+    private int numberOfPeople;
+    private ProgramRequirement programRequirement;
+    
 
     public int getOfficeID() {
         return officeID;
@@ -76,12 +74,12 @@ public class InternshipData {
         this.position = position;
     }
 
-    public String getWorkingContry() {
-        return workingContry;
+    public String getWorkingCountry() {
+        return workingCountry;
     }
 
-    public void setWorkingContry(String workingContry) {
-        this.workingContry = workingContry;
+    public void setWorkingCountry(String workingCountry) {
+        this.workingCountry = workingCountry;
     }
 
     public Period getWorkingPeriod() {
@@ -99,44 +97,13 @@ public class InternshipData {
     public void setWage(int wage) {
         this.wage = wage;
     }
-
-    public int getMinYear() {
-        return minYear;
+    
+    public int getNumberOfPeople() {
+    	return numberOfPeople;
+    }
+    
+    public void setNumberOfPeople(int number) {
+    	this.numberOfPeople = number;
     }
 
-    public void setMinYear(int minYear) {
-        this.minYear = minYear;
-    }
-
-    public String getMajorCondition() {
-        return majorCondition;
-    }
-
-    public void setMajorCondition(String majorCondition) {
-        this.majorCondition = majorCondition;
-    }
-
-    public float getMinGpa() {
-        return minGpa;
-    }
-
-    public void setMinGpa(float minGpa) {
-        this.minGpa = minGpa;
-    }
-
-    public String getEnglishLevel() {
-        return englishLevel;
-    }
-
-    public void setEnglishLevel(String englishLevel) {
-        this.englishLevel = englishLevel;
-    }
-
-    public ExtraRequirement getExtraRequirement() {
-        return extraRequirement;
-    }
-
-    public void setExtraRequirement(ExtraRequirement extraRequirement) {
-        this.extraRequirement = extraRequirement;
-    }
 }
