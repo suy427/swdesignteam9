@@ -12,15 +12,15 @@ public class InternshipProgram {
 
     }
 
-    public void makeInternshipProgram() { // �벑濡�
+    public void makeInternshipProgram() { // 등록
 
     }
 
-    public void setInternshipProgram() { // �닔�젙
+    public void setInternshipProgram() { // 수정
 
     }
 
-    public void removeInternshipProgram() { // �궘�젣
+    public void removeInternshipProgram() { // 삭제
 
     }
 
@@ -28,46 +28,93 @@ public class InternshipProgram {
         Apply.getInstance(pID, stdID);
     }
 
-    public ArrayList<ProgramInformation> searchInternship(ProgramInformation filteredCondition, ArrayList<Integer> selectedOptions) { //선택한 옵션 항목들(필터)
+    public ArrayList<ProgramInformation> searchInternship(SearchFilter selectedCondition, ArrayList<Integer> selectedOptions) { //선택한 옵션 항목들(필터)
     	ArrayList<ProgramInformation> searchResult = new ArrayList<>();
-    	
-    	for(ProgramInformation program : internshipData) {    		
+
+    	for(ProgramInformation program : internshipData) {
     		check : for(int option : selectedOptions) { //선택한 옵션마다 확인
     			switch(option) {
-    			case 1: //모집기간
-    				break;
-    			case 2: //모집기관. office
-    				break;
-    			case 3: //모집회사 
-    				break;
-    			case 4: //학년. year
-    				break;
-    			case 5: //직무. position
-    				break;
-    			case 6: //국가.
-    				break;
-    			case 7: //파견기간. workingPeriod
-    				break;
-    			case 8: //경쟁률
-    				break;
-    			case 9: //모집인원
-    				if(filteredCondition.getWage() > program.getWage()) { //사용자가 선택한 wage > 실제 프로그램의 wage 이면 do not add!
-    					break check;
-    				}
-    				break;
-    			case 10: //봉급
-    				if(filteredCondition.getWage() > program.getWage()) { //사용자가 선택한 wage > 실제 프로그램의 wage 이면 do not add!
-    					break check;
-    				}
-    				break;
+					case 1: //모집기간
+						if(program.getClosingDate().compareTo(selectedCondition.getClosingDate()) < 0)
+							break check;
+
+						break;
+
+					case 2: //모집기관. office
+						for(String office : selectedCondition.getOfficeName())
+							if(program.getOfficeName().equals(office))
+								break;
+
+						break check;
+
+					case 3: //모집회사
+						for(String company : selectedCondition.getWorkingCountry())
+							if(program.getWorkingCountry().equals(company))
+								break;
+
+						break check;
+
+					case 4: //학년. year
+						if(selectedCondition.getProgramRequirement().getMinYear() < program.getProgramRequirement().getMinYear())
+							break check;
+						break;
+
+					case 5: //직무. position
+						for(String position : selectedCondition.getPosition())
+							if(program.getPosition().equals(position))
+								break;
+
+						break check;
+
+					case 6: //국가.
+						for(String country : selectedCondition.getWorkingCountry())
+							if(program.getWorkingCountry().equals(country))
+								break;
+
+						break check;
+
+					case 7: //파견기간. workingPeriod
+						if(selectedCondition.getWorkingPeriod().endDate == null) // 시작만 설정
+							if(program.getWorkingPeriod().startDate.compareTo(selectedCondition.getWorkingPeriod().startDate) < 0)
+								break check;
+
+						else if(selectedCondition.getWorkingPeriod().startDate == null) // 끝만 설정
+							if(program.getWorkingPeriod().endDate.compareTo(selectedCondition.getWorkingPeriod().endDate) > 0)
+								break check;
+
+						else // 둘 다 설정
+							if(program.getWorkingPeriod().startDate.compareTo(selectedCondition.getWorkingPeriod().startDate) < 0 ||
+									program.getWorkingPeriod().endDate.compareTo(selectedCondition.getWorkingPeriod().endDate) > 0)
+								break check;
+						break;
+
+					case 8: //경쟁률
+						if(selectedCondition.getCompatitionRate() > Apply.getInstance(program.getProgramID()).getCompatitionRate())
+							break check;
+
+						break;
+
+					case 9: //모집인원
+						if(selectedCondition.getNumberOfPeople() > program.getNumberOfPeople()) //사용자가 선택한 뽑는 인원 > 실제 뽑는인원 이면 skip
+							break check;
+
+						break;
+
+					case 10: //봉급
+						if(selectedCondition.getWage() > program.getWage()) //사용자가 선택한 wage > 실제 프로그램의 wage 이면 skip
+							break check;
+
+						break;
     			}
     			searchResult.add(program);
     		}
-    	
     	}
-    	
     	return searchResult;
     }
+
+	public ProgramInformation getInternshipData(int pID) {
+		return internshipData.get(pID);
+	}
 
     public boolean isClosed() {
 

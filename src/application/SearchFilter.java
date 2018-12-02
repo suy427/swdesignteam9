@@ -3,43 +3,25 @@ package application;
 import java.util.ArrayList;
 import java.util.Date;
 
-public class ProgramInformation {
-
-    private int officeID;
-    private String officeName;
-    private int programID;
+public class SearchFilter {
+    private float compatitionRate;
+    private ArrayList<String> workingCountry;
+    private ArrayList<String> officeName;
     private String programName;
     private String companyName;
     private Date closingDate;
     private ArrayList<String> position;
-    private String workingCountry;
     private Period workingPeriod;
     private int wage;
     private int numberOfPeople;
-    private ProgramRequirement programRequirement;
+    private int minYear;
 
-    public int getOfficeID() {
-        return officeID;
-    }
-
-    public void setOfficeID(int officeID) {
-        this.officeID = officeID;
-    }
-
-    public String getOfficeName() {
+    public ArrayList<String> getOfficeName() {
         return officeName;
     }
 
-    public void setOfficeName(String officeName) {
+    public void setOfficeName(ArrayList<String> officeName) {
         this.officeName = officeName;
-    }
-
-    public int getProgramID() {
-        return programID;
-    }
-
-    public void setProgramID(int programID) {
-        this.programID = programID;
     }
 
     public String getProgramName() {
@@ -74,14 +56,6 @@ public class ProgramInformation {
         this.position = position;
     }
 
-    public String getWorkingCountry() {
-        return workingCountry;
-    }
-
-    public void setWorkingCountry(String workingCountry) {
-        this.workingCountry = workingCountry;
-    }
-
     public Period getWorkingPeriod() {
         return workingPeriod;
     }
@@ -99,11 +73,11 @@ public class ProgramInformation {
     }
 
     public int getNumberOfPeople() {
-    	return numberOfPeople;
+        return numberOfPeople;
     }
 
-    public void setNumberOfPeople(int number) {
-    	this.numberOfPeople = number;
+    public void setNumberOfPeople(int numberOfPeople) {
+        this.numberOfPeople = numberOfPeople;
     }
 
     public ProgramRequirement getProgramRequirement() {
@@ -114,4 +88,29 @@ public class ProgramInformation {
         this.programRequirement = programRequirement;
     }
 
+    private ProgramRequirement programRequirement;
+
+    public float getCompatitionRate() {
+        return compatitionRate;
+    }
+
+    public void setCompatitionRate(float compatitionRate) {
+        this.compatitionRate = compatitionRate;
+    }
+
+    public ArrayList<String> getWorkingCountry() {
+        return workingCountry;
+    }
+
+    public void setWorkingCountry(ArrayList<String> workingCountry) {
+        this.workingCountry = workingCountry;
+    }
+
+    public int getMinYear() {
+        return minYear;
+    }
+
+    public void setMinYear(int minYear) {
+        this.minYear = minYear;
+    }
 }
