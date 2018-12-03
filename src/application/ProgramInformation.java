@@ -1,5 +1,6 @@
 package application;
 
+import java.util.ArrayList;
 import java.util.Date;
 
 public class ProgramInformation {
@@ -10,7 +11,7 @@ public class ProgramInformation {
     private String programName;
     private String companyName;
     private Date closingDate;
-    private boolean position;
+    private ArrayList<String> position;
     private String workingCountry;
     private Period workingPeriod;
     private int wage;
@@ -65,11 +66,11 @@ public class ProgramInformation {
         this.closingDate = closingDate;
     }
 
-    public boolean isPosition() {
+    public ArrayList<String> getPosition() {
         return position;
     }
 
-    public void setPosition(boolean position) {
+    public void setPosition(ArrayList<String> position) {
         this.position = position;
     }
 

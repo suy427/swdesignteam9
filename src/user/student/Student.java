@@ -4,7 +4,7 @@ import user.User;
 
 import java.util.ArrayList;
 
-    public class Student extends User {
+public class Student extends User {
 
     private String name;
     private int studentID;
@@ -12,7 +12,7 @@ import java.util.ArrayList;
     private String major;
     private float gpa;
     private String gender; // will be replaced enum later
-    private String englishLevel; // will be replaced enum later
+    private int englishLevel; // int로 3,2,1 -> high, middle, low
     private ArrayList<Integer> wishList = new ArrayList<>(); // programID를 저장
     private ArrayList<Integer> myApplyInfo = new ArrayList<>(); // programID를 저장
     private WishCondition wishCondition;
@@ -62,12 +62,36 @@ import java.util.ArrayList;
         this.gpa = gpa;
     }
 
-    public String getEnglishLevel() {
+    public String getGender() {
+        return gender;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
+
+    public int getEnglishLevel() {
         return englishLevel;
     }
 
-    public void setEnglishLevel(String englishLevel) {
+    public void setEnglishLevel(int englishLevel) {
         this.englishLevel = englishLevel;
+    }
+
+    public ArrayList<Integer> getWishList() {
+        return wishList;
+    }
+
+    public void setWishList(ArrayList<Integer> wishList) {
+        this.wishList = wishList;
+    }
+
+    public ArrayList<Integer> getMyApplyInfo() {
+        return myApplyInfo;
+    }
+
+    public void setMyApplyInfo(ArrayList<Integer> myApplyInfo) {
+        this.myApplyInfo = myApplyInfo;
     }
 
     public WishCondition getWishCondition() {

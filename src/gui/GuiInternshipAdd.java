@@ -296,22 +296,24 @@ public class GuiInternshipAdd extends JFrame {
 					
 					newInternship.setWage(Integer.parseInt(wage.getText()));
 					newInternship.getProgramRequirement().setMinYear(Integer.parseInt(minYear.getText()));
+
 					newInternship.setPosition(position.getText());
 					newInternship.getProgramRequirement().setMinGpa(Float.parseFloat(minGPA.getText()));
+
 					newInternship.getProgramRequirement().setMajorCondition(majorCondition.getText());
 					
-					String english = null;
-					if(rdbtnHigh.isSelected()){
-						newInternship.getProgramRequirement().setEnglishLevel(rdbtnHigh.getText());
-						english = rdbtnHigh.getText();
+					int englishLevel = 0;
+					if(rdbtnHigh.isSelected()) {
+						newInternship.getProgramRequirement().setEnglishLevel(3);
+						englishLevel = Integer.parseInt(rdbtnHigh.getText());
 					}
-					else if(rdbtnMideum.isSelected()){
-						newInternship.getProgramRequirement().setEnglishLevel(rdbtnMideum.getText());
-						english = rdbtnMideum.getText();
+					else if(rdbtnMideum.isSelected()) {
+						newInternship.getProgramRequirement().setEnglishLevel(2);
+						englishLevel = Integer.parseInt(rdbtnMideum.getText());
 					}
-					else if(rdbtnLow.isSelected()){
-						newInternship.getProgramRequirement().setEnglishLevel(rdbtnLow.getText());
-						english = rdbtnLow.getText();
+					else {
+						newInternship.getProgramRequirement().setEnglishLevel(1);
+						englishLevel = Integer.parseInt(rdbtnLow.getText());
 					}
 
 					//newInternship.setExtraRequirement();
@@ -325,7 +327,7 @@ public class GuiInternshipAdd extends JFrame {
 					writer.write(programName.getText() + "|" + companyName.getText() + "|"
 					+ workingCountry.getText() + "|" + closingDate.getText() + "|" + startDate.getText() + "|"
 					+ endDate.getText() + "|" + wage.getText() + "|" + minYear.getText() + "|" + position.getText() + "|" 
-					+ minGPA.getText() + "|" + majorCondition.getText() + "|" + english + "\r\n");
+					+ minGPA.getText() + "|" + majorCondition.getText() + "|" + englishLevel + "\r\n");
 					writer.flush();
 					dispose();
 					
@@ -338,7 +340,7 @@ public class GuiInternshipAdd extends JFrame {
 				}
 			}
 		};
-		
+
 		btnNewButton.addActionListener(finListener);
 		
 		JButton button = new JButton("취소");

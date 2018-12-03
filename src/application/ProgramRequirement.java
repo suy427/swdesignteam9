@@ -2,9 +2,9 @@ package application;
 
 public class ProgramRequirement {
 	private int minYear;
-	private String majorCondition; // ?–˜ ?´ë¦? ?„ˆë¬? ë¶???—°?Š¤?Ÿ¬??..?… ?… 
+	private String majorCondition; // ?ï¿½ï¿½ ?ï¿½ï¿½ï¿½? ?ï¿½ï¿½ï¿½? ï¿½??ï¿½ï¿½?ï¿½ï¿½?ï¿½ï¿½?ï¿½ï¿½??..?ï¿½ï¿½?ï¿½ï¿½
     private float minGpa;
-    private String englishLevel;
+    private int englishLevel;
     private ExtraRequirement extraRequirement;
     
 
@@ -32,11 +32,11 @@ public class ProgramRequirement {
         this.minGpa = minGpa;
     }
 
-    public String getEnglishLevel() {
+    public int getEnglishLevel() {
         return englishLevel;
     }
 
-    public void setEnglishLevel(String englishLevel) {
+    public void setEnglishLevel(int englishLevel) {
         this.englishLevel = englishLevel;
     }
 

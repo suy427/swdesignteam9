@@ -31,6 +31,20 @@ public class InternshipProgram {
         Apply.getInstance(pID, stdID);
     }
 
+    public ArrayList<ProgramInformation> searchByMyInfo(int myYear, String myMajor, float myGpa, int myEnglishLevel) {
+    	ArrayList<ProgramInformation> resultProgram = new ArrayList<>();
+
+    	for(ProgramInformation program : internshipData) {
+    		if(myYear < program.getProgramRequirement().getMinYear())	break;
+    		if(!myMajor.equals(program.getProgramRequirement().getMajorCondition())) break;
+			if(myGpa < program.getProgramRequirement().getMinGpa()) break;
+			if(myEnglishLevel < program.getProgramRequirement().getEnglishLevel()) break;
+
+    		resultProgram.add(program);
+		}
+    	return resultProgram;
+	}
+
     public ArrayList<ProgramInformation> searchInternship(SearchFilter selectedCondition, ArrayList<Integer> selectedOptions) { //선택한 옵션 항목들(필터)
     	ArrayList<ProgramInformation> searchResult = new ArrayList<>();
 

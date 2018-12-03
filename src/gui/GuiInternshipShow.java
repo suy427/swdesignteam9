@@ -32,12 +32,8 @@ public class GuiInternshipShow extends JFrame {
 			frame.setVisible(true);
 		}
 	}
-	
 	show intershipShowShow = new show();
 
-	/**
-	 * Create the frame.
-	 */
 	public GuiInternshipShow() {
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
