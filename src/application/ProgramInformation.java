@@ -3,7 +3,7 @@ package application;
 import java.util.ArrayList;
 import java.util.Date;
 
-public class ProgramInformation {
+public class ProgramInformation implements Comparable<ProgramInformation> {
 
     private int officeID;
     private String officeName;
@@ -112,6 +112,14 @@ public class ProgramInformation {
 
     public void setProgramRequirement(ProgramRequirement programRequirement) {
         this.programRequirement = programRequirement;
+    }
+
+    @Override
+    public int compareTo(ProgramInformation programInformation) {
+        if(this.getClosingDate().compareTo(programInformation.getClosingDate()) > 0) {
+            return 1;
+        }
+        else return -1;
     }
 
 }
