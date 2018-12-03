@@ -4,19 +4,19 @@ import java.util.ArrayList;
 
 public class ExtraRequirement {
 
-   private ArrayList<String> carrier = new ArrayList<>();
-   private boolean militaryService;
-   private ArrayList<String> certificate = new ArrayList<>();
+    private boolean carrier;
+    private boolean militaryService;
+    private ArrayList<String> certificate = new ArrayList<>();
 
-   ExtraRequirement() {
+    ExtraRequirement() {
 
-   }
-
-    public ArrayList<String> getCarrier() {
-       return carrier;
     }
 
-    public void setCarrier(ArrayList<String> carrier) {
+    public boolean isCarrier() {
+        return carrier;
+    }
+
+    public void setCarrier(boolean carrier) {
         this.carrier = carrier;
     }
 
