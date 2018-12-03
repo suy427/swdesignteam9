@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Date;
 
 public class SearchFilter {
+    private String keyword;
     private float compatitionRate;
     private ArrayList<String> workingCountry;
     private ArrayList<String> officeName;
@@ -112,5 +113,13 @@ public class SearchFilter {
 
     public void setMinYear(int minYear) {
         this.minYear = minYear;
+    }
+
+    public String getKeyword() {
+        return keyword;
+    }
+
+    public void setKeyword(String keyword) {
+        this.keyword = keyword;
     }
 }
