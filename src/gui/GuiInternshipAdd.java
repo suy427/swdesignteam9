@@ -15,7 +15,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
-import application.InternshipData;
+import application.ProgramInformation;
 import application.InternshipProgram;
 import application.Period;
 import gui.GuiInternshipNull.show;
@@ -37,7 +37,6 @@ public class GuiInternshipAdd extends JFrame {
 	private JTextField companyName;
 	private JTextField workingCountry;
 	private JTextField closingDate;
-	//private JTextField workingPeriod;
 	private JTextField startDate;
 	private JTextField endDate;
 	private JTextField wage;
@@ -47,11 +46,11 @@ public class GuiInternshipAdd extends JFrame {
 	private JTextField majorCondition;
 	private JTextField extraRequirement;
 	
-	private Integer programID = 0;
+	//private Integer programID = 0;
 	
-	public void setAddProgramID(int programId){
-		this.programID = programId;
-	}
+//	public void setAddProgramID(int programId){
+//		this.programID = programId;
+//	}
 
 	public class show extends Thread {
 		public void run() {
@@ -265,9 +264,9 @@ public class GuiInternshipAdd extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				try {
 					
-					InternshipData newInternship = new InternshipData();
+					ProgramInformation newInternship = new ProgramInformation();
 					
-					newInternship.setProgramID(programID);
+					//newInternship.setProgramID(programID);
 					newInternship.setProgramName(programName.getText());
 					newInternship.setCompanyName(companyName.getText());
 					newInternship.setWorkingCountry(workingCountry.getText());
@@ -296,34 +295,34 @@ public class GuiInternshipAdd extends JFrame {
 					newInternship.setWorkingPeriod(Dperiod);
 					
 					newInternship.setWage(Integer.parseInt(wage.getText()));
-					newInternship.setMinYear(Integer.parseInt(minYear.getText()));
+					newInternship.getProgramRequirement().setMinYear(Integer.parseInt(minYear.getText()));
 					newInternship.setPosition(position.getText());
-					newInternship.setMinGpa(Float.parseFloat(minGPA.getText()));
-					newInternship.setMajorCondition(majorCondition.getText());
+					newInternship.getProgramRequirement().setMinGpa(Float.parseFloat(minGPA.getText()));
+					newInternship.getProgramRequirement().setMajorCondition(majorCondition.getText());
 					
 					String english = null;
 					if(rdbtnHigh.isSelected()){
-						newInternship.setEnglishLevel(rdbtnHigh.getText());
+						newInternship.getProgramRequirement().setEnglishLevel(rdbtnHigh.getText());
 						english = rdbtnHigh.getText();
 					}
 					else if(rdbtnMideum.isSelected()){
-						newInternship.setEnglishLevel(rdbtnMideum.getText());
+						newInternship.getProgramRequirement().setEnglishLevel(rdbtnMideum.getText());
 						english = rdbtnMideum.getText();
 					}
 					else if(rdbtnLow.isSelected()){
-						newInternship.setEnglishLevel(rdbtnLow.getText());
+						newInternship.getProgramRequirement().setEnglishLevel(rdbtnLow.getText());
 						english = rdbtnLow.getText();
 					}
 
 					//newInternship.setExtraRequirement();
 					
-					InternshipProgram internshipProgram = new InternshipProgram();
+					InternshipProgram internshipProgram = new InternshipProgram(); // 이거 메인에 넣기
 					internshipProgram.makeInternshipProgram(newInternship);
 					
 					File file = new File("internship.txt");
 					FileWriter writer = null;
 					writer = new FileWriter(file, true);
-					writer.write(programID.toString() + "|" + programName.getText() + "|" + companyName.getText() + "|"
+					writer.write(programName.getText() + "|" + companyName.getText() + "|"
 					+ workingCountry.getText() + "|" + closingDate.getText() + "|" + startDate.getText() + "|"
 					+ endDate.getText() + "|" + wage.getText() + "|" + minYear.getText() + "|" + position.getText() + "|" 
 					+ minGPA.getText() + "|" + majorCondition.getText() + "|" + english + "\r\n");
@@ -339,6 +338,7 @@ public class GuiInternshipAdd extends JFrame {
 				}
 			}
 		};
+		
 		btnNewButton.addActionListener(finListener);
 		
 		JButton button = new JButton("취소");
@@ -349,7 +349,6 @@ public class GuiInternshipAdd extends JFrame {
 			}
 		};
 		button.addActionListener(canListener);
-		
 	}
 
 }

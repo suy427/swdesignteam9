@@ -13,16 +13,18 @@ public class InternshipProgram {
 
     }
 
-    public void makeInternshipProgram() { // 등록
-
+    public void makeInternshipProgram(ProgramInformation programInformation) { // 등록
+		internshipData.add(programInformation);
     }
 
-    public void setInternshipProgram() { // 수정
+    public void setInternshipProgram(int pID) { // 수정
+		ProgramInformation newProgram = new ProgramInformation();
 
+		internshipData.add(pID, newProgram);
     }
 
-    public void removeInternshipProgram() { // 삭제
-
+    public void removeInternshipProgram(int pID) { // 삭제
+		internshipData.remove(pID);
     }
 
     public void apply(int pID, int stdID) { // button onClick�궡遺��뿉�꽌 pID, stdID瑜� 以��떎.

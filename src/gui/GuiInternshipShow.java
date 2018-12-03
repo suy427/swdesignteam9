@@ -84,13 +84,10 @@ public class GuiInternshipShow extends JFrame {
 			bufReader.close();
 			
 		}
-		catch(FileNotFoundException e){
-			
+		catch(Exception e){
+			e.printStackTrace();
 		}
-		catch(IOException ee){
-			
-		}
-		
+
 		Box horizontalBox_1 = Box.createHorizontalBox();
 		horizontalBox_1.setAlignmentX(Component.RIGHT_ALIGNMENT);
 		verticalBox.add(horizontalBox_1);

@@ -14,11 +14,10 @@ public class IntershipDemo {
 		
 		GuiInternshipAdd internshipAdd = new GuiInternshipAdd();
 		GuiInternshipShow internshipShow = new GuiInternshipShow();
-		GuiInternshipNull internshipNull = new GuiInternshipNull();
+		Gui_InitMngWindow internshipNull = new Gui_InitMngWindow();
 		
-		//internshipNull.intershipNullShow.run();
-		internshipShow.intershipShowShow.run();
+		internshipNull.intershipNullShow.run();
+		//internshipShow.intershipShowShow.run();
 		//internshipAdd.internshipAddShow.run();
-
 	}
 }

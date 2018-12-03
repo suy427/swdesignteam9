@@ -1,10 +1,8 @@
 package gui;
 
 import java.awt.BorderLayout;
-import java.awt.EventQueue;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.FileWriter;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -14,10 +12,8 @@ import javax.swing.JButton;
 import javax.swing.SwingConstants;
 import javax.swing.Box;
 import java.awt.Component;
-import javax.swing.JRadioButton;
-import javax.swing.JTextField;
 
-public class GuiInternshipNull extends JFrame {
+public class Gui_InitMngWindow extends JFrame {
 	
 	private int programId = 0;
 	private JPanel contentPane;
@@ -25,16 +21,14 @@ public class GuiInternshipNull extends JFrame {
 	
 	public class show extends Thread {
 		public void run() {
-			GuiInternshipNull frame = new GuiInternshipNull();
+			Gui_InitMngWindow frame = new Gui_InitMngWindow();
 			frame.setVisible(true);
 		}
 	}
 	
 	show intershipNullShow = new show();
-	/**
-	 * Create the frame.
-	 */
-	public GuiInternshipNull() {
+
+	public Gui_InitMngWindow() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 499, 600);
 		contentPane = new JPanel();
@@ -61,18 +55,20 @@ public class GuiInternshipNull extends JFrame {
 		JLabel label = new JLabel("등록된 인턴 프로그램이 없습니다.");
 		panel_2.add(label);
 		
-		JButton button_1 = new JButton("인턴프로그램 추가");
-		button_1.setAlignmentY(Component.TOP_ALIGNMENT);
-		verticalBox_1.add(button_1);
-		button_1.setHorizontalAlignment(SwingConstants.RIGHT);
+		JButton btn_addProgram = new JButton("인턴프로그램 추가");
+
+		btn_addProgram.setAlignmentY(Component.TOP_ALIGNMENT);
+		verticalBox_1.add(btn_addProgram);
+		btn_addProgram.setHorizontalAlignment(SwingConstants.RIGHT);
 		
 		ActionListener listener = new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				internshipAdd.setAddProgramID(programId);
+//				internshipAdd.setAddProgramID(programId);
+				
 				internshipAdd.internshipAddShow.run();
-				programId++;
+//				programId++;
 			}
 		};
-		button_1.addActionListener(listener);
+		btn_addProgram.addActionListener(listener);
 	}
 }
