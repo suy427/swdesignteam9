@@ -1,90 +1,99 @@
 package application;
 
-import user.student.Student;
-
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
+import java.io.*;
+import java.util.Scanner;
 
 public class Apply {
+    private String applyFilePath = "../DB/Apply/";
+    private String internFilePath = "../DB/Internship/";
+    private Scanner scan;
 
-    private static HashMap<Integer, Apply> __InfoInstances = new HashMap<>();
-    private HashMap<Integer, PersonalApplyData> personalApplyData = new HashMap<>();
-    private int programID; //지우라고 피드백받음
-    private int applierNumber; // 몇명째로 지원하는거냐...
-    private float compatitionRate;
-
-    private Apply(int pID, int stdID) {
-        this.programID = pID;
-        this.personalApplyData.put(stdID, new PersonalApplyData(stdID));
-        this.applierNumber = 1;
+    Apply() {
+        readFromApplyDB();
     }
 
-    public static Apply getInstance(int pID, int stdID) { // pID당 하나의 instance를 생성
-        Apply programData;
-        Map<Integer, PersonalApplyData> studentData;
+    private int getRecruitNumber(int pID) throws Exception {
+        String fileName = internFilePath + pID + ".txt";
+        File file = new File(fileName);
+        String[] informs;
+        scan = new Scanner(file);
 
-        if (__InfoInstances.containsKey(pID)) { // 해당하는 pID가 있으면 그걸 return
-            programData = __InfoInstances.get(pID);
-            studentData = programData.personalApplyData;
+        informs = scan.nextLine().split(";");
+        return Integer.parseInt(informs[6]); // 해당 pID의 채용인원
+    }
 
-            studentData.put(stdID, new PersonalApplyData(stdID));
-            programData.applierNumber++;
-            programData.compatitionRate = programData.applierNumber/(new InternshipProgram()).getInternshipData(pID).getNumberOfPeople();
+    private void setApplyInfo(int pID, int stdID) throws Exception {
+        String fileName = applyFilePath + pID + ".txt";
+        File file = new File(fileName);
+        String[] informs;
+        ApplyInformation newForm = new ApplyInformation();
+        scan = new Scanner(file);
 
-            return programData;
+        if(file.exists()) { // 해당 pID에 대한 파일이 있으면
+            informs = scan.nextLine().split(";");
+            newForm.setProgramID(Integer.parseInt(informs[0]))
+                    .setApplierNumber(Integer.parseInt(informs[1]) + 1)
+                    .setCompatitionRate(newForm.applierNumber/getRecruitNumber(pID))
+                    .setPersonalApplyData(informs[3]+","+pID+" "+ stdID);
         }
-        else {// 해당 pID가 없으면
-            programData = new Apply(pID, stdID);
-            return programData;
+        else { // 해당 pID에 대한 파일이 없으면
+            newForm.setProgramID(pID)
+                    .setApplierNumber(1)
+                    .setCompatitionRate(1/getRecruitNumber(pID))
+                    .setPersonalApplyData(pID+" "+stdID);
         }
-        //saveInfo(ApplyInformation data); //파일 입력
+        writeToApplyDB(pID, newForm);
     }
 
-    public static Apply getInstance(int pID) { // 해당 pID의 프로그램 instance를 가져옴
-        if (__InfoInstances.containsKey(pID)) // 해당하는 pID가 있으면 그걸 return
-            return __InfoInstances.get(pID);
-        else    return null; // 없으면 null
+    public void apply(int pID, int stdID) throws Exception { //
+        setApplyInfo(pID, stdID);
     }
 
-    public void cancelApply(int stdID) {
-        personalApplyData.remove(stdID);
+    public void readFromApplyDB() {
+        // 이건 사실 내가 지원한 정보들을 출력하는 앤데 지금 안하겠음 일단.
+
     }
 
-    public HashMap<Integer, PersonalApplyData> showPersonalApplyData(ArrayList<Integer> applyInfo) {
-        HashMap<Integer, PersonalApplyData> returnMap = new HashMap<>();
-
-        for(Integer programID : applyInfo)
-            returnMap.put(programID, personalApplyData.get(programID));
-
-        return returnMap;
+    public void writeToApplyDB(int pID, ApplyInformation information) throws Exception {
+        FileWriter writer = new FileWriter(applyFilePath + pID + ".txt", false);
+        writer.write(information.programID+
+                ";"+information.applierNumber+
+                ";"+information.compatitionRate+
+                ";"+information.personalApplyData);
+        writer.flush();
     }
 
+    public void cancelApply(int pID, int stdID) throws Exception {
+        String fileName = applyFilePath + pID + ".txt";
+        File file = new File(fileName);
+        ApplyInformation newForm = new ApplyInformation();
+        String newInforms="";
+        scan = new Scanner(file);
 
-    //private void saveInfo(ApplyInformation data) {
-    public int getProgramID() {
-        return programID;
+        String[] informs = scan.nextLine().split(";")[3].split(","); // std state,std state,std state ....
+        newForm.setProgramID(Integer.parseInt(informs[0]))
+                .setApplierNumber(Integer.parseInt(informs[1]) + 1)
+                .setCompatitionRate(newForm.applierNumber/getRecruitNumber(pID));
+
+        for(String inform : informs)
+            if(inform.contains(Integer.toString(stdID)) == false)
+                newInforms += inform;
+
+        newForm.setPersonalApplyData(newInforms);
     }
 
-    //}
-    public void setProgramID(int programID) {
-        this.programID = programID;
-    }
+    private String showPersonalApplyData(int pID, int stdID) throws Exception {
+        String fileName = applyFilePath + pID + ".txt";
+        File file = new File(fileName);
+        String[] informs;
+        ApplyInformation newForm = new ApplyInformation();
+        scan = new Scanner(file);
 
-    // FileInputStream(sdfasdfasdf);
-    public int getApplierNumber() {
-        return applierNumber;
-    }
+        informs = scan.nextLine().split(";")[3].split(",");
 
-    public void setApplierNumber(int applierNumber) {
-        this.applierNumber = applierNumber;
-    }
+        for(String inform : informs)
+            if(inform.contains(Integer.toString(stdID)))    return inform;
 
-    public float getCompatitionRate() {
-        return compatitionRate;
-    }
-
-    public void setCompatitionRate(float compatitionRate) {
-        this.compatitionRate = compatitionRate;
+        return null;
     }
 }

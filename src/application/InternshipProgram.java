@@ -25,10 +25,6 @@ public class InternshipProgram {
 		internshipData.remove(pID);
     }
 
-    public void apply(int pID, int stdID) { // button onClick�궡遺��뿉�꽌 pID, stdID瑜� 以��떎.
-        Apply.getInstance(pID, stdID);
-    }
-
     public ArrayList<ProgramInformation> searchByMyInfo(int myYear, String myMajor, float myGpa, int myEnglishLevel) {
     	ArrayList<ProgramInformation> resultProgram = new ArrayList<>();
 

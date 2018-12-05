@@ -1,7 +1,6 @@
 package gui;
 
-import java.awt.BorderLayout;
-import java.awt.EventQueue;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
@@ -11,24 +10,13 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-import javax.swing.JFrame;
-import javax.swing.JPanel;
+import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 
 import application.ProgramInformation;
 import application.InternshipProgram;
 import application.Period;
 import gui.GuiInternshipNull.show;
-
-import javax.swing.JLabel;
-import javax.swing.JButton;
-import javax.swing.SwingConstants;
-import javax.swing.Box;
-import javax.swing.ButtonGroup;
-
-import java.awt.Component;
-import javax.swing.JRadioButton;
-import javax.swing.JTextField;
 
 public class GuiInternshipAdd extends JFrame {
 
@@ -192,10 +180,32 @@ public class GuiInternshipAdd extends JFrame {
 		
 		JLabel lblPosition = new JLabel("Position");
 		horizontalBox.add(lblPosition);
-		
-		position = new JTextField();
+
+		CheckboxGroup positionGroup = new CheckboxGroup();
+		JCheckBox position_office = new JCheckBox("Office Work", positionGroup, );
 		horizontalBox.add(position);
-		position.setColumns(10);
+
+		JCheckBox position_research = new JCheckBox("Research");
+		horizontalBox.add(position);
+
+		JCheckBox position_translate = new JCheckBox("Translate");
+		horizontalBox.add(position);
+
+		JCheckBox position_design = new JCheckBox("Design");
+		horizontalBox.add(position);
+
+		JCheckBox position_programming = new JCheckBox("Programming");
+		horizontalBox.add(position);
+
+		JCheckBox position_manage = new JCheckBox("Manage");
+		horizontalBox.add(position);
+
+		JCheckBox position_etc = new JCheckBox("etc");
+		horizontalBox.add(position);
+
+		JCheckBox position_admin = new JCheckBox("Administrate");
+		horizontalBox.add(position);
+		//행정 연구 관리 디자인 번역 개발 사무 기타
 		
 		Box horizontalBox_9 = Box.createHorizontalBox();
 		horizontalBox_9.setAlignmentX(Component.RIGHT_ALIGNMENT);
@@ -298,6 +308,7 @@ public class GuiInternshipAdd extends JFrame {
 					newInternship.getProgramRequirement().setMinYear(Integer.parseInt(minYear.getText()));
 
 					newInternship.setPosition(position.getText());
+					position.getp
 					newInternship.getProgramRequirement().setMinGpa(Float.parseFloat(minGPA.getText()));
 
 					newInternship.getProgramRequirement().setMajorCondition(majorCondition.getText());

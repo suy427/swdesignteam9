@@ -6,8 +6,6 @@ public class Period {
     public Date startDate = null;
     public Date endDate = null;
 
-
-
     public Date getStartDate() {
         return startDate;
     }

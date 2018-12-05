@@ -8,4 +8,12 @@ public class PersonalApplyData {
         this.studentID = stdID;
         this.passState = false; // default value
     }
+
+    public boolean isPass() {
+        return passState;
+    }
+
+    public void setPassState(boolean passState) {
+        this.passState = passState;
+    }
 }
